@@ -1,12 +1,13 @@
 const initialBalance = document.querySelector(".balance");
-console.log(initialBalance.textContent);
-const noakhaliDonateAmount = document.querySelector(".noakhali-donate-amount");
+//const noakhaliDonateAmount = document.querySelector(".noakhali-donate-amount");
 const donateForm = document.querySelector("form");
 const donateForNoakhali = document.querySelector(".noakhali-donate-amount");
 const dAmount = document.getElementById("donat-amount");
+const donateBtn = document.querySelector(".donate-btn");
 
-function showMsg(msg) {
-	console.log(msg);
+function showMsg(msg, action = "bg-green-400", cursor = "cursor-pointer") {
+	donateBtn.textContent = msg;
+	donateBtn.classList.add(action, cursor);
 }
 
 function getTheDonateAmount(e) {
@@ -19,7 +20,11 @@ function validateDonateAmount(recievedAmount) {
 	//console.log(recievedAmount);
 	let isValid;
 	if (recievedAmount <= 0) {
-		showMsg("Donate amount should be positive a number");
+		showMsg(
+			"Donate amount should be positive a number",
+			"bg-red-400",
+			"cursor-not-allowed"
+		);
 		isValid = false;
 	} else if (recievedAmount === "") {
 		showMsg("Donate amount should not be empty!");
@@ -57,7 +62,13 @@ function donateFormHadler(e) {
 		makeDonate(recievedAmount);
 	}
 }
+
+function handleSubmitBtn(e) {
+	donateBtn.classList.remove("bg-red-400", "cursor-not-allowed");
+	donateBtn.textContent = "Donate Now";
+}
 donateForm.addEventListener("submit", donateFormHadler);
+dAmount.addEventListener("focus", handleSubmitBtn);
 
 // console.log(noakhaliDonateAmount.textContent);
 // console.log(typeof Number(noakhaliDonateAmount.textContent));
