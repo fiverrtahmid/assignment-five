@@ -10,6 +10,7 @@
 		<!-- Headder start here -->
 		<div class="bg-yellow-100 py-4 content-center">
 			<div class="header flex justify-between max-w-6xl mx-auto">
+				<!-- page toggle -->
 				<div class="nav items-center flex">
 					<button
 						class="nav-btn py-2 px-6 bg-green-400 text-black font-bold rounded"
@@ -17,20 +18,23 @@
 						Blog
 					</button>
 				</div>
+				<!-- logo area -->
 				<div class="logo flex items-center gap-4">
 					<span
 						><img src="assets/logo-icon.png" alt="logo icon"
 					/></span>
 					<h1 class="font-bold text-4xl">Donate Bangladesh</h1>
 				</div>
-				<div class="balance flex items-center gap-4">
+				<!-- initial balabce -->
+				<div class="flex items-center gap-4">
 					<span><img src="assets/coin.png" alt="logo icon" /></span>
 					<h1 class="initial-balance text-black font-bold">
-						5500 <span>BDT</span>
+						<span class="balance">5500</span> <span>BDT</span>
 					</h1>
 				</div>
 			</div>
 		</div>
+		<!-- toggle between donate card and history -->
 		<div class="navigate-btns py-10 flex gap-6 justify-center">
 			<button
 				class="donation-page py-2 px-6 bg-green-400 text-black font-bold rounded capitalize"
@@ -43,18 +47,21 @@
 				history
 			</button>
 		</div>
+		<!-- donate card starts here -->
 		<div
 			class="donate-card flex justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
 		>
+			<!-- card image -->
 			<div class="card-item w-6/12 image">
 				<img src="assets/noakhali.png" class="w-full" alt="" />
 			</div>
-
+			<!-- card text -->
 			<div class="card-item w-6/12 flex flex-col justify-evenly">
 				<div class="noakhali-donate flex items-center gap-4">
 					<span><img src="assets/coin.png" alt="logo icon" /></span>
 					<h1 class="initial-balance text-black font-bold">
-						5500 <span>BDT</span>
+						<span class="noakhali-donate-amount">0</span>
+						<span>BDT</span>
 					</h1>
 				</div>
 
@@ -69,7 +76,7 @@
 					join us in supporting the relief efforts and making a
 					positive impact on the lives of those in need.
 				</p>
-
+				<!-- donate form starts here -->
 				<div class="donate-form">
 					<form class="noakhali flex flex-col gap-2">
 						<input
