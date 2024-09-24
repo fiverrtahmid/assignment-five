@@ -43,7 +43,7 @@ function showMsg(e, msg, action = "bg-green-400", cursor = "cursor-pointer") {
 	let getBtn = e.target.parentElement.children[0][1];
 	getBtn.textContent = msg;
 	getBtn.classList.add(action, cursor);
-	alert(msg);
+	alert("Insufficient Balance!");
 }
 
 // receiving the donate amount
@@ -52,11 +52,51 @@ function getTheDonateAmount(e) {
 	return donateAmount;
 }
 
+// get and show total doanate
+function makeDonate(recievedAmount, restBalance, donateFor = "") {
+	let totalDonate;
+	if (recievedAmount < restBalance) {
+		if (donateFor === "noakhali") {
+			totalDonate =
+				Number(noakhaliDonateAmount.textContent) + recievedAmount;
+			noakhaliDonateAmount.textContent = totalDonate;
+			showAlert();
+		}
+		if (donateFor === "feni") {
+			totalDonate = Number(feniDonateAnout.textContent) + recievedAmount;
+			feniDonateAnout.textContent = totalDonate;
+			showAlert();
+		}
+		if (donateFor === "quota") {
+			totalDonate =
+				Number(quotaDonateAmount.textContent) + recievedAmount;
+			quotaDonateAmount.textContent = totalDonate;
+			showAlert();
+		}
+	}
+	return totalDonate;
+}
+
+//get initial balance
+function getInitialBalance() {
+	let balance = Number(initialBalance.textContent);
+	return balance;
+}
+// minus taka from main or initial balance
+function minusFromInitialBalance(e, recievedAmount, balance) {
+	let restBalance;
+	restBalance = balance - recievedAmount;
+	if (restBalance < 0) {
+		showMsg(e, "Isufficient Balance", "bg-red-400", "cursor-not-allowed");
+	} else {
+		initialBalance.textContent = restBalance;
+		return restBalance;
+	}
+}
 // validate the recieving donate amount
-function validateDonateAmount(e, recievedAmount) {
-	//console.log(recievedAmount);
-	let isValid;
-	if (recievedAmount <= 0) {
+function validateDonateAmount(e, recievedAmount, restBalance) {
+	let isValid = true;
+	if (recievedAmount < 0) {
 		showMsg(
 			e,
 			"Donate amount should be a positive number",
@@ -64,40 +104,25 @@ function validateDonateAmount(e, recievedAmount) {
 			"cursor-not-allowed"
 		);
 		isValid = false;
-	} else if (recievedAmount === "") {
-		showMsg("Donate amount should not be empty!");
+	} else if (recievedAmount === 0) {
+		showMsg(
+			e,
+			"Donate amount should be not 0",
+			"bg-red-400",
+			"cursor-not-allowed"
+		);
 		isValid = false;
-	} else {
-		isValid = true;
+	} else if (recievedAmount === "") {
+		showMsg(
+			e,
+			"Donate amount should not be empty!",
+			"bg-red-400",
+			"cursor-not-allowed"
+		);
+		isValid = false;
 	}
 
 	return isValid;
-}
-
-// get and show total doanate
-function makeDonate(recievedAmount, donateFor = "") {
-	let totalDonate;
-
-	if (donateFor === "noakhali") {
-		totalDonate = Number(noakhaliDonateAmount.textContent) + recievedAmount;
-		noakhaliDonateAmount.textContent = totalDonate;
-	}
-	if (donateFor === "feni") {
-		totalDonate = Number(feniDonateAnout.textContent) + recievedAmount;
-		feniDonateAnout.textContent = totalDonate;
-	}
-	if (donateFor === "quota") {
-		totalDonate = Number(quotaDonateAmount.textContent) + recievedAmount;
-		quotaDonateAmount.textContent = totalDonate;
-	}
-
-	return totalDonate;
-}
-
-// minus taka from main or initial balance
-function minusFromInitialBalance(recievedAmount) {
-	let balance = Number(initialBalance.textContent) - recievedAmount;
-	initialBalance.textContent = balance;
 }
 
 // reset input
@@ -144,49 +169,74 @@ function donateFormHadler(e) {
 		// recieved amount
 		const recievedAmount = getTheDonateAmount(e, "noakhali");
 
+		const initialBalance = getInitialBalance();
+
 		// checking validity
+		const restBalance = minusFromInitialBalance(
+			e,
+			recievedAmount,
+			initialBalance
+		);
 		const isValid = validateDonateAmount(e, recievedAmount);
+
+		resetInput(e);
 
 		// if valid got to next otherwise return
 		if (!isValid) return;
 
-		resetInput(e);
-
-		minusFromInitialBalance(recievedAmount);
-		const totalDonate = makeDonate(recievedAmount, "noakhali");
-
-		makeDonationHistory(e, recievedAmount);
-		showAlert();
+		makeDonate(recievedAmount, restBalance, "noakhali");
+		if (recievedAmount < initialBalance) {
+			makeDonationHistory(e, recievedAmount);
+		}
 	}
+
 	if (e.target.children[1].classList.contains("feni-donate-btn")) {
 		// recieved amount
 		const recievedAmount = getTheDonateAmount(e, "feni");
 
+		const initialBalance = getInitialBalance();
+
+		// checking validity
+		const restBalance = minusFromInitialBalance(
+			e,
+			recievedAmount,
+			initialBalance
+		);
+
+		resetInput(e);
+
 		// checking validity
 		const isValid = validateDonateAmount(e, recievedAmount);
-
-		// if valid got to next otherwise return
 		if (!isValid) return;
-		resetInput(e);
-		minusFromInitialBalance(recievedAmount);
-		const totalDonate = makeDonate(recievedAmount, "feni");
-		makeDonationHistory(e, recievedAmount);
-		showAlert();
+
+		makeDonate(recievedAmount, restBalance, "feni");
+		if (recievedAmount < initialBalance) {
+			makeDonationHistory(e, recievedAmount);
+		}
 	}
 	if (e.target.children[1].classList.contains("quota-donate-btn")) {
 		// recieved amount
 		const recievedAmount = getTheDonateAmount(e, "quota");
 
+		const initialBalance = getInitialBalance();
+
+		// checking validity
+		const restBalance = minusFromInitialBalance(
+			e,
+			recievedAmount,
+			initialBalance
+		);
+
+		resetInput(e);
+
 		// checking validity
 		const isValid = validateDonateAmount(e, recievedAmount);
-
-		// if valid got to next otherwise return
 		if (!isValid) return;
-		resetInput(e);
-		minusFromInitialBalance(recievedAmount);
-		const totalDonate = makeDonate(recievedAmount, "quota");
-		makeDonationHistory(e, recievedAmount);
-		showAlert();
+
+		makeDonate(recievedAmount, restBalance, "quota");
+		if (recievedAmount < initialBalance) {
+			makeDonationHistory(e, recievedAmount);
+		}
 	}
 }
 

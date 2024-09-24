@@ -48,33 +48,35 @@
 					</div>
 				</div>
 			</div>
-			<!-- toggle between donate card and history -->
-			<div class="navigate-btns py-10 flex gap-6 justify-center">
-				<button
-					class="donation-page py-2 px-6 bg-green-400 text-black font-bold rounded capitalize"
-				>
-					donation
-				</button>
-				<button
-					class="history-page py-2 px-6 bg-gray-200 text-black font-bold rounded capitalize"
-				>
-					history
-				</button>
-			</div>
+		</div>
+		<!-- toggle between donate card and history -->
+		<div class="navigate-btns py-10 flex gap-6 justify-center">
+			<button
+				class="donation-page py-2 px-6 bg-green-400 text-black font-bold rounded capitalize"
+			>
+				donation
+			</button>
+			<button
+				class="history-page py-2 px-6 bg-gray-200 text-black font-bold rounded capitalize"
+			>
+				history
+			</button>
 		</div>
 
 		<!-- donate card starts here -->
-		<div class="donate-card-section flex flex-col gap-6">
+		<div class="donate-card-section flex flex-col gap-6 px-4">
 			<!-- donate4 for noakhali card -->
 			<div
-				class="donate-card flex justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
+				class="donate-card flex sm:flex-row flex-col justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
 			>
 				<!-- card image -->
-				<div class="card-item w-6/12 image">
+				<div class="card-item w-full sm:w-6/12 image">
 					<img src="assets/noakhali.png" class="w-full" alt="" />
 				</div>
 				<!-- card text -->
-				<div class="card-item w-6/12 flex flex-col justify-evenly">
+				<div
+					class="card-item w-full sm:w-6/12 flex flex-col justify-evenly"
+				>
 					<div class="noakhali-donate flex items-center gap-4">
 						<span
 							><img src="assets/coin.png" alt="logo icon"
@@ -119,14 +121,16 @@
 			</div>
 			<!-- donate card for feni -->
 			<div
-				class="donate-card flex justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
+				class="donate-card flex sm:flex-row flex-col justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
 			>
 				<!-- card image -->
-				<div class="card-item w-6/12 image">
+				<div class="card-item w-full sm:w-6/12 image">
 					<img src="assets/feni.png" class="w-full" alt="" />
 				</div>
 				<!-- card text -->
-				<div class="card-item w-6/12 flex flex-col justify-evenly">
+				<div
+					class="card-item w-full sm:w-6/12 flex flex-col justify-evenly"
+				>
 					<div class="feni-donate flex items-center gap-4">
 						<span
 							><img src="assets/coin.png" alt="logo icon"
@@ -138,7 +142,7 @@
 					</div>
 
 					<h2 class="font-bold text-2xl card-title">
-						Donate for Flood Relief in Feni,Bangladesh
+						Donate for Flood Relief in Feni, Bangladesh
 					</h2>
 					<p>
 						The recent floods in Feni have devastated local
@@ -173,14 +177,16 @@
 			</div>
 			<!-- donation card for quota -->
 			<div
-				class="donate-card flex justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
+				class="donate-card flex sm:flex-row flex-col justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
 			>
 				<!-- card image -->
-				<div class="card-item w-6/12 image">
+				<div class="card-item w-full sm:w-6/12 image">
 					<img src="assets/quota-protest.png" class="w-full" alt="" />
 				</div>
 				<!-- card text -->
-				<div class="card-item w-6/12 flex flex-col justify-evenly">
+				<div
+					class="card-item w-full sm:w-6/12 flex flex-col justify-evenly"
+				>
 					<div class="feni-donate flex items-center gap-4">
 						<span
 							><img src="assets/coin.png" alt="logo icon"
@@ -230,7 +236,7 @@
 
 		<!-- donation history starts here -->
 		<div
-			class="donation-history hidden max-w-6xl mx-auto flex-col gap-4"
+			class="donation-history hidden max-w-6xl mx-auto flex-col gap-4 p-3"
 		></div>
 
 		<!-- modal popup -->

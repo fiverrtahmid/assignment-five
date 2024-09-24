@@ -9,34 +9,39 @@
 	</head>
 	<body>
 		<!-- Headder start here -->
-		<div class="header-container w-full bg-white">
-			<div class="bg-yellow-100 py-4 content-center">
-				<div class="header flex justify-between max-w-6xl mx-auto">
-					<!-- page toggle -->
-					<div class="nav items-center flex">
-						<a
-							href="/index.html"
-							class="nav-btn py-2 px-6 bg-green-400 text-black font-bold rounded"
-						>
-							Blog
-						</a>
-					</div>
-					<!-- logo area -->
-					<div class="logo flex items-center gap-4">
-						<span
-							><img src="assets/logo-icon.png" alt="logo icon"
-						/></span>
-						<h1 class="font-bold text-4xl">Donate Bangladesh</h1>
-					</div>
-					<!-- initial balabce -->
-					<div class="flex items-center gap-4">
-						<span
-							><img src="assets/coin.png" alt="logo icon"
-						/></span>
-						<h1 class="initial-balance text-black font-bold">
-							<span class="balance">5500</span> <span>BDT</span>
-						</h1>
-					</div>
+		<div class="bg-yellow-100 py-4 content-center px-2">
+			<div
+				class="header flex justify-between items-center gap-4 max-w-6xl mx-auto flex-col sm:flex-row"
+			>
+				<!-- page toggle -->
+				<div class="nav items-center flex order-3 sm:order-none">
+					<a
+						href="/index.html"
+						class="nav-btn home py-2 px-6 bg-green-400 text-black font-bold rounded"
+					>
+						Blog
+					</a>
+				</div>
+				<!-- logo area -->
+				<div
+					class="logo flex items-center gap-4 order-first sm:order-none"
+				>
+					<span
+						><img
+							class="w-full min-w-10"
+							src="assets/logo-icon.png"
+							alt="logo icon"
+					/></span>
+					<h1 class="font-bold text-xl md:text-4xl">
+						Donate Bangladesh
+					</h1>
+				</div>
+				<!-- initial balabce -->
+				<div class="flex items-center gap-4">
+					<span><img src="assets/coin.png" alt="logo icon" /></span>
+					<h1 class="initial-balance text-black font-bold">
+						<span class="balance">5500</span> <span>BDT</span>
+					</h1>
 				</div>
 			</div>
 		</div>
