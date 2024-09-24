@@ -4,6 +4,8 @@ const donateForm = document.querySelector("form");
 const donateForNoakhali = document.querySelector(".noakhali-donate-amount");
 const dAmount = document.getElementById("donat-amount");
 const donateBtn = document.querySelector(".donate-btn");
+const cardContainer = document.querySelector(".donate-card-section");
+const donationHistory = document.querySelector(".donation-history");
 
 function showMsg(msg, action = "bg-green-400", cursor = "cursor-pointer") {
 	donateBtn.textContent = msg;
@@ -67,8 +69,21 @@ function handleSubmitBtn(e) {
 	donateBtn.classList.remove("bg-red-400", "cursor-not-allowed");
 	donateBtn.textContent = "Donate Now";
 }
+
+function documentBtnHandler(e) {
+	if (e.target.classList.contains("donation-page")) {
+		cardContainer.classList.remove("hidden");
+		donationHistory.classList.add("hidden");
+	}
+	if (e.target.classList.contains("history-page")) {
+		cardContainer.classList.add("hidden");
+		donationHistory.classList.remove("hidden");
+	}
+}
+
 donateForm.addEventListener("submit", donateFormHadler);
 dAmount.addEventListener("focus", handleSubmitBtn);
+document.addEventListener("click", documentBtnHandler);
 
 // console.log(noakhaliDonateAmount.textContent);
 // console.log(typeof Number(noakhaliDonateAmount.textContent));
