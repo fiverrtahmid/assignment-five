@@ -6,7 +6,7 @@
 		<title>Donate Bangladesh</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
-	<body>
+	<body class="relative">
 		<!-- Headder start here -->
 		<div class="bg-yellow-100 py-4 content-center">
 			<div class="header flex justify-between max-w-6xl mx-auto">
@@ -48,7 +48,8 @@
 			</button>
 		</div>
 		<!-- donate card starts here -->
-		<div class="donate-card-section">
+		<div class="donate-card-section flex flex-col gap-6">
+			<!-- donate4 for noakhali card -->
 			<div
 				class="donate-card flex justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
 			>
@@ -86,8 +87,8 @@
 							<input
 								type="number"
 								name="donate-amount"
-								id="donat-amount"
-								class="w-full border-2 p-2 rounded-md"
+								id="input-amount"
+								class="input-amount w-full border-2 p-2 rounded-md"
 								placeholder="Write Donation Amount"
 							/>
 							<button
@@ -100,21 +101,140 @@
 					</div>
 				</div>
 			</div>
+			<!-- donate card for feni -->
+			<div
+				class="donate-card flex justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
+			>
+				<!-- card image -->
+				<div class="card-item w-6/12 image">
+					<img src="assets/feni.png" class="w-full" alt="" />
+				</div>
+				<!-- card text -->
+				<div class="card-item w-6/12 flex flex-col justify-evenly">
+					<div class="feni-donate flex items-center gap-4">
+						<span
+							><img src="assets/coin.png" alt="logo icon"
+						/></span>
+						<h1 class="initial-balance text-black font-bold">
+							<span class="feni-donate-amount">0</span>
+							<span>BDT</span>
+						</h1>
+					</div>
+
+					<h2 class="font-bold text-2xl card-title">
+						Donate for Flood Relief in Feni,Bangladesh
+					</h2>
+					<p>
+						The recent floods in Feni have devastated local
+						communities, leading to severe disruption and loss. Your
+						generous donation will help provide immediate aid,
+						including food, clean water, and medical supplies, to
+						those affected by this calamity. Together, we can offer
+						crucial support and help rebuild lives in the aftermath
+						of this disaster. Every contribution counts towards
+						making a real difference. Please consider donating today
+						to assist those in urgent need.
+					</p>
+					<!-- donate form starts here -->
+					<div class="donate-form">
+						<form class="feni flex flex-col gap-2">
+							<input
+								type="number"
+								name="donate-amount"
+								id="input-amount"
+								class="input-amount w-full border-2 p-2 rounded-md"
+								placeholder="Write Donation Amount"
+							/>
+							<button
+								type="submit"
+								class="feni-donate-btn donate-btn py-2 px-6 bg-green-400 text-black font-bold rounded capitalize w-full"
+							>
+								Donate Now
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- donation card for quota -->
+			<div
+				class="donate-card flex justify-between max-w-6xl mx-auto gap-10 p-6 border-2 rounded-lg"
+			>
+				<!-- card image -->
+				<div class="card-item w-6/12 image">
+					<img src="assets/quota-protest.png" class="w-full" alt="" />
+				</div>
+				<!-- card text -->
+				<div class="card-item w-6/12 flex flex-col justify-evenly">
+					<div class="feni-donate flex items-center gap-4">
+						<span
+							><img src="assets/coin.png" alt="logo icon"
+						/></span>
+						<h1 class="initial-balance text-black font-bold">
+							<span class="quota-donate-amount">0</span>
+							<span>BDT</span>
+						</h1>
+					</div>
+
+					<h2 class="font-bold text-2xl card-title">
+						Aid for Injured in the Quota Movement
+					</h2>
+					<p>
+						The recent Quota movement has resulted in numerous
+						injuries and significant hardship for many individuals.
+						Your support is crucial in providing medical assistance,
+						rehabilitation, and necessary supplies to those
+						affected. By contributing, you help ensure that injured
+						individuals receive the care and support they need
+						during this challenging time. Every donation plays a
+						vital role in alleviating their suffering and aiding in
+						their recovery. Please consider making a donation to
+						support these brave individuals in their time of need.
+					</p>
+					<!-- donate form starts here -->
+					<div class="donate-form">
+						<form class="quota flex flex-col gap-2">
+							<input
+								type="number"
+								name="donate-amount"
+								id="input-amount"
+								class="input-amount w-full border-2 p-2 rounded-md"
+								placeholder="Write Donation Amount"
+							/>
+							<button
+								type="submit"
+								class="quota-donate-btn donate-btn py-2 px-6 bg-green-400 text-black font-bold rounded capitalize w-full"
+							>
+								Donate Now
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- donation history starts here -->
-		<div class="donation-history hidden max-w-6xl mx-auto">
+		<div
+			class="donation-history hidden max-w-6xl mx-auto flex-col gap-4"
+		></div>
+
+		<!-- modal popup -->
+		<div
+			class="modal-container hidden fixed top-0 bg-black/80 h-screen w-screen flex-col justify-center items-center"
+		>
 			<div
-				class="history-card border-2 rounded-md p-4 flex flex-col gap-4"
+				class="modal bg-white flex flex-col justify-center items-center gap-2 max-w-fit mx-auto shadow-xl p-10 rounded-xl"
 			>
-				<h2 class="font-bold text-2xl">
-					<span>500</span>taka Donate for Flood at Noakhali,
-					Bangladesh
-				</h2>
-				<p>
-					Date: Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh
-					Standard Time)
-				</p>
+				<h1 class="font-bold text-3xl">Congrates!</h1>
+				<img class="max-w-full w-7" src="assets/coin.png" alt="" />
+				<p>You Have Donated Humabkind</p>
+				<h2 class="font-bold">successfully!</h2>
+				<button
+					class="bg-gray-300 capitalize py-2 px-6 rounded-lg close"
+					type="button"
+					id="close"
+				>
+					close confirmation
+				</button>
 			</div>
 		</div>
 
