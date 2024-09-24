@@ -5,48 +5,54 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Donate Bangladesh</title>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body class="relative">
 		<!-- Headder start here -->
-		<div class="bg-yellow-100 py-4 content-center">
-			<div class="header flex justify-between max-w-6xl mx-auto">
-				<!-- page toggle -->
-				<div class="nav items-center flex">
-					<button
-						class="nav-btn py-2 px-6 bg-green-400 text-black font-bold rounded"
-					>
-						Blog
-					</button>
-				</div>
-				<!-- logo area -->
-				<div class="logo flex items-center gap-4">
-					<span
-						><img src="assets/logo-icon.png" alt="logo icon"
-					/></span>
-					<h1 class="font-bold text-4xl">Donate Bangladesh</h1>
-				</div>
-				<!-- initial balabce -->
-				<div class="flex items-center gap-4">
-					<span><img src="assets/coin.png" alt="logo icon" /></span>
-					<h1 class="initial-balance text-black font-bold">
-						<span class="balance">5500</span> <span>BDT</span>
-					</h1>
+		<div class="header-container w-full bg-white">
+			<div class="bg-yellow-100 py-4 content-center">
+				<div class="header flex justify-between max-w-6xl mx-auto">
+					<!-- page toggle -->
+					<div class="nav items-center flex">
+						<button
+							class="nav-btn py-2 px-6 bg-green-400 text-black font-bold rounded"
+						>
+							Blog
+						</button>
+					</div>
+					<!-- logo area -->
+					<div class="logo flex items-center gap-4">
+						<span
+							><img src="assets/logo-icon.png" alt="logo icon"
+						/></span>
+						<h1 class="font-bold text-4xl">Donate Bangladesh</h1>
+					</div>
+					<!-- initial balabce -->
+					<div class="flex items-center gap-4">
+						<span
+							><img src="assets/coin.png" alt="logo icon"
+						/></span>
+						<h1 class="initial-balance text-black font-bold">
+							<span class="balance">5500</span> <span>BDT</span>
+						</h1>
+					</div>
 				</div>
 			</div>
+			<!-- toggle between donate card and history -->
+			<div class="navigate-btns py-10 flex gap-6 justify-center">
+				<button
+					class="donation-page py-2 px-6 bg-green-400 text-black font-bold rounded capitalize"
+				>
+					donation
+				</button>
+				<button
+					class="history-page py-2 px-6 bg-gray-200 text-black font-bold rounded capitalize"
+				>
+					history
+				</button>
+			</div>
 		</div>
-		<!-- toggle between donate card and history -->
-		<div class="navigate-btns py-10 flex gap-6 justify-center">
-			<button
-				class="donation-page py-2 px-6 bg-green-400 text-black font-bold rounded capitalize"
-			>
-				donation
-			</button>
-			<button
-				class="history-page py-2 px-6 bg-gray-200 text-black font-bold rounded capitalize"
-			>
-				history
-			</button>
-		</div>
+
 		<!-- donate card starts here -->
 		<div class="donate-card-section flex flex-col gap-6">
 			<!-- donate4 for noakhali card -->

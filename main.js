@@ -28,6 +28,16 @@ const donationPageBtn = document.querySelector(".donation-page");
 // get button for history page
 const historyPageBtn = document.querySelector(".history-page");
 
+// event for sticky header
+document.addEventListener("scroll", (e) => {
+	const headerContainer = document.querySelector(".header-container");
+	if (window.scrollY > 150) {
+		headerContainer.classList.add("fixed");
+	} else {
+		headerContainer.classList.remove("fixed");
+	}
+});
+
 // function for showing the error msg
 function showMsg(e, msg, action = "bg-green-400", cursor = "cursor-pointer") {
 	let getBtn = e.target.parentElement.children[0][1];
@@ -111,13 +121,13 @@ function makeDonationHistory(e, amount) {
 	donationHistory.insertAdjacentHTML("afterbegin", historyCard);
 }
 
+// shoing modal popup
 function showAlert() {
 	const modalContainer = document.querySelector(".modal-container");
 	modalContainer.classList.add("flex");
 	modalContainer.classList.remove("hidden");
 
-	const closeBtn = document.querySelector(".close");
-	closeBtn.addEventListener("click", () => {
+	document.querySelector(".close").addEventListener("click", () => {
 		modalContainer.classList.remove("flex");
 		modalContainer.classList.add("hidden");
 	});
