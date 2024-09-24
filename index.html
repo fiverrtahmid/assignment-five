@@ -10,22 +10,32 @@
 	<body class="relative">
 		<!-- Headder start here -->
 		<div class="header-container w-full bg-white">
-			<div class="bg-yellow-100 py-4 content-center">
-				<div class="header flex justify-between max-w-6xl mx-auto">
+			<div class="bg-yellow-100 py-4 content-center px-2">
+				<div
+					class="header flex justify-between items-center gap-4 max-w-6xl mx-auto flex-col sm:flex-row"
+				>
 					<!-- page toggle -->
-					<div class="nav items-center flex">
-						<button
-							class="nav-btn py-2 px-6 bg-green-400 text-black font-bold rounded"
+					<div class="nav items-center flex order-3 sm:order-none">
+						<a
+							href="/blog.html"
+							class="nav-btn home py-2 px-6 bg-green-400 text-black font-bold rounded"
 						>
-							Blog
-						</button>
+							Home
+						</a>
 					</div>
 					<!-- logo area -->
-					<div class="logo flex items-center gap-4">
+					<div
+						class="logo flex items-center gap-4 order-first sm:order-none"
+					>
 						<span
-							><img src="assets/logo-icon.png" alt="logo icon"
+							><img
+								class="w-full min-w-10"
+								src="assets/logo-icon.png"
+								alt="logo icon"
 						/></span>
-						<h1 class="font-bold text-4xl">Donate Bangladesh</h1>
+						<h1 class="font-bold text-xl md:text-4xl">
+							Donate Bangladesh
+						</h1>
 					</div>
 					<!-- initial balabce -->
 					<div class="flex items-center gap-4">
